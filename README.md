@@ -1,9 +1,8 @@
 Laravel Log Keeper
 ======
 
-[![Author](http://img.shields.io/badge/author-@matgrimm-blue.svg?style=flat-square)](https://twitter.com/matgrimm)
-[![Latest Version](https://img.shields.io/github/release/mathiasgrimm/laravel-log-keeper.svg?style=flat-square)](https://github.com/mathiasgrimm/laravel-log-keeper/releases)
-[![Total Downloads](https://img.shields.io/packagist/dt/mathiasgrimm/laravel-log-keeper.svg?style=flat-square)](https://packagist.org/packages/mathiasgrimm/laravel-log-keeper)
+[![Latest Version](https://img.shields.io/github/release/lifeonscreen/laravel-log-keeper.svg?style=flat-square)](https://github.com/lifeonscreen/laravel-log-keeper/releases)
+[![Total Downloads](https://img.shields.io/packagist/dt/lifeonscreen/laravel-log-keeper.svg?style=flat-square)](https://packagist.org/packages/lifeonscreen/laravel-log-keeper)
 
 Laravel Log Keeper helps rotating your logs while storing them anywhere you want with custom local/remote retention policies.
 
@@ -100,9 +99,8 @@ Can publish config with this command:
 php artisan vendor:publish --provider=LifeOnScreen\LaravelLogKeeper\Providers\LaravelServiceProvider
 ```
 
+Config file:
 ```php
-    // laravel-log-keeper.php
-
     // ----------------------------------------------------------------------------
     // Enable or Disable the Laravel Log Keeper.
     // If it is set to false, no operations will be performed and it will be logged
@@ -132,7 +130,7 @@ php artisan vendor:publish --provider=LifeOnScreen\LaravelLogKeeper\Providers\La
     // to the remote disk. They will also be deleted from the local disk after being
     // uploaded
     // ----------------------------------------------------------------------------
-    'localRetentionDays' => env('LARAVEL_LOG_KEEPER_LOCAL_RETENTION_DAYS', 7),
+    'local_retention_days' => env('LARAVEL_LOG_KEEPER_LOCAL_RETENTION_DAYS', 7),
 
     // ----------------------------------------------------------------------------
     // How many days a file will be kept on the remote for.
@@ -140,9 +138,9 @@ php artisan vendor:publish --provider=LifeOnScreen\LaravelLogKeeper\Providers\La
     // 30 + 7 = 37
     // Only files older than 37 days would be deleted from the remote disk
     // ----------------------------------------------------------------------------
-    'remoteRetentionDays' => env('LARAVEL_LOG_KEEPER_REMOTE_RETENTION_DAYS', 30),
+    'remote_retention_days' => env('LARAVEL_LOG_KEEPER_REMOTE_RETENTION_DAYS', 30),
 
-    'remoteRetentionDaysCalculated' =>
+    'remote_retention_days_calculated' =>
         env('LARAVEL_LOG_KEEPER_REMOTE_RETENTION_DAYS', 30) +
         env('LARAVEL_LOG_KEEPER_LOCAL_RETENTION_DAYS', 7),
 

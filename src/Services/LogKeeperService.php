@@ -55,9 +55,9 @@ class LogKeeperService
         $this->localRepo = $localRepo;
         $this->remoteRepo = $remoteRepo;
         $this->today = Carbon::today();
-        $this->localRetentionDays = $this->config['localRetentionDays'];
-        $this->remoteRetentionDays = $this->config['remoteRetentionDays'];
-        $this->remoteRetentionDaysCalculated = $this->config['remoteRetentionDaysCalculated'];
+        $this->localRetentionDays = $this->config['local_retention_days'];
+        $this->remoteRetentionDays = $this->config['remote_retention_days'];
+        $this->remoteRetentionDaysCalculated = $this->config['remoteRetention_days_calculated'];
         $this->logger = $logger;
     }
 

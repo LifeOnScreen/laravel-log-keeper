@@ -34,7 +34,7 @@ class LogKeeperServiceTest extends TestCase
             $date = LogUtil::getDate($log);
             $diff = $date->diffInDays($today);
 
-            return (($diff > $config['localRetentionDays']) && ($diff <= $config['remoteRetentionDaysCalculated']));
+            return (($diff > $config['local_retention_days']) && ($diff <= $config['remoteRetention_days_calculated']));
         });
 
         $logsToMove = array_values(array_map(function ($item) {
@@ -66,7 +66,7 @@ class LogKeeperServiceTest extends TestCase
         $logs = $localRepo->getLogs();
         foreach ($logs as $log) {
             $date = LogUtil::getDate($log);
-            $this->assertTrue($today->diffInDays($date) <= $config['localRetentionDays']);
+            $this->assertTrue($today->diffInDays($date) <= $config['local_retention_days']);
         }
     }
 
@@ -109,7 +109,7 @@ class LogKeeperServiceTest extends TestCase
         foreach ($logs as $log) {
             $date = LogUtil::getDate($log);
             $diff = $today->diffInDays($date);
-            $this->assertTrue($diff > $config['localRetentionDays'], "Diff: {$diff} days Log: $log");
+            $this->assertTrue($diff > $config['local_retention_days'], "Diff: {$diff} days Log: $log");
         }
     }
 
@@ -132,7 +132,7 @@ class LogKeeperServiceTest extends TestCase
         foreach ($logs as $log) {
             $date = LogUtil::getDate($log);
             $diff = $today->diffInDays($date);
-            $this->assertTrue($diff <= $config['remoteRetentionDaysCalculated'], "Diff: {$diff} days Log: $log");
+            $this->assertTrue($diff <= $config['remoteRetention_days_calculated'], "Diff: {$diff} days Log: $log");
         }
     }
 
@@ -148,7 +148,7 @@ class LogKeeperServiceTest extends TestCase
 
         $localRepo->setLogs([]);
 
-        $days = $config['remoteRetentionDaysCalculated'];
+        $days = $config['remoteRetention_days_calculated'];
         $new = "/fake/storage/logs/laravel-new-{$today->addDays($days)->toDateString()}.log.tar.bz2";
 
         $remoteRepo->setLogs([
@@ -205,7 +205,7 @@ class LogKeeperServiceTest extends TestCase
         $localRepo = new FakeLogsRepo($config);
         $remoteRepo = new FakeLogsRepo($config);
 
-        $days = $config['localRetentionDays'] + 1;
+        $days = $config['local_retention_days'] + 1;
 
         $localLogs = [
             '/fake/storage/logs/laravel-2010-01-01.log', // will be deleted

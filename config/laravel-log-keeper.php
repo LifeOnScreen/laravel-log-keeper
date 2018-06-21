@@ -30,7 +30,7 @@ return [
     // to the remote disk. They will also be deleted from the local disk after being
     // uploaded
     // ----------------------------------------------------------------------------
-    'localRetentionDays' => env('LARAVEL_LOG_KEEPER_LOCAL_RETENTION_DAYS', 7),
+    'local_retention_days' => env('LARAVEL_LOG_KEEPER_LOCAL_RETENTION_DAYS', 7),
 
     // ----------------------------------------------------------------------------
     // How many days a file will be kept on the remote for.
@@ -38,9 +38,9 @@ return [
     // 30 + 7 = 37
     // Only files older than 37 days would be deleted from the remote disk
     // ----------------------------------------------------------------------------
-    'remoteRetentionDays' => env('LARAVEL_LOG_KEEPER_REMOTE_RETENTION_DAYS', 30),
+    'remote_retention_days' => env('LARAVEL_LOG_KEEPER_REMOTE_RETENTION_DAYS', 30),
 
-    'remoteRetentionDaysCalculated' =>
+    'remoteRetention_days_calculated' =>
         env('LARAVEL_LOG_KEEPER_REMOTE_RETENTION_DAYS', 30) +
         env('LARAVEL_LOG_KEEPER_LOCAL_RETENTION_DAYS', 7),
 

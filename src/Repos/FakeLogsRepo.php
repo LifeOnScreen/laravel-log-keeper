@@ -15,13 +15,13 @@ class FakeLogsRepo implements LogsRepoInterface
     {
         $this->config = $config;
 
-        $localRetentionMinus1 = Carbon::today()->subDays($this->config['localRetentionDays'] - 1);
-        $localRetention = Carbon::today()->subDays($this->config['localRetentionDays']);
-        $localRetentionPlus1 = Carbon::today()->subDays($this->config['localRetentionDays'] + 1);
+        $localRetentionMinus1 = Carbon::today()->subDays($this->config['local_retention_days'] - 1);
+        $localRetention = Carbon::today()->subDays($this->config['local_retention_days']);
+        $localRetentionPlus1 = Carbon::today()->subDays($this->config['local_retention_days'] + 1);
 
-        $remoteRetentionMinus1 = Carbon::today()->subDays($this->config['remoteRetentionDaysCalculated'] - 1);
-        $remoteRetention = Carbon::today()->subDays($this->config['remoteRetentionDaysCalculated']);
-        $remoteRetentionPlus1 = Carbon::today()->subDays($this->config['remoteRetentionDaysCalculated'] + 1);
+        $remoteRetentionMinus1 = Carbon::today()->subDays($this->config['remote_retention_days_calculated'] - 1);
+        $remoteRetention = Carbon::today()->subDays($this->config['remote_retention_days_calculated']);
+        $remoteRetentionPlus1 = Carbon::today()->subDays($this->config['remote_retention_days_calculated'] + 1);
 
         $this->logs = [
             '/fake/storage/logs/laravel-old-2010-01-01.log',
